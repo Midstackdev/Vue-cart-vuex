@@ -5,15 +5,28 @@
 		  <div class="card-body">
 		    <a href="#">{{ product.title }}</a> ${{ product.price }}
 			<p> {{product.description}}</p>
-			<a href="#" class="btn btn-light">Add to cart</a>
+			<a href="#" class="btn btn-light" @click.prevent="addToCart">Add to cart</a>
 		  </div>
 		</div>
 	</div>
 </template>
 
 <script>
+	import { mapActions } from 'vuex'
+
 	export default {
 		name: 'product',
-		props: ['product']
+		props: ['product'],
+		methods: {
+			...mapActions({
+				addProductToCart: 'addProductToCart'
+			}),
+			addToCart () {
+				this.addProductToCart({
+					product: this.product,
+					quantity: 1
+				})
+			}
+		}
 	}
 </script>

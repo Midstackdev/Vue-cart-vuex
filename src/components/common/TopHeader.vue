@@ -5,6 +5,10 @@
     
       <div class="container">
         {{ cartItemCount }} items in cart (${{ cartTotal }})
+
+        <div class="float-right">
+          {{ user.data.name }}
+        </div>
       </div>
     
   </header>
@@ -18,8 +22,9 @@
 		name: 'top-header',
     computed: {
       ...mapGetters ({
-        cartItemCount: 'cartItemCount',
-        cartTotal: 'cartTotal'
+        cartItemCount: 'shopping/cartItemCount',
+        cartTotal: 'shopping/cartTotal',
+        user: 'auth/user'
       })
     }
 	}

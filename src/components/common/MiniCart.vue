@@ -22,15 +22,15 @@
 		name: 'mini-cart',
 		computed: {
 			...mapGetters({
-				cart: 'cart'
+				cart: 'shopping/cart'
 			})
 		}, 
 
 		methods: {
 			...mapActions({
-				getCart: 'getCart',
-				removeProductFromCart: 'removeProductFromCart',
-				removeAllProductFromCart: 'removeAllProductFromCart'
+				getCart: 'shopping/getCart',
+				removeProductFromCart: 'shopping/removeProductFromCart',
+				removeAllProductFromCart: 'shopping/removeAllProductFromCart'
 			})
 		},
 

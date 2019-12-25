@@ -19,7 +19,7 @@
 		props: ['product'],
 		methods: {
 			...mapActions({
-				addProductToCart: 'addProductToCart'
+				addProductToCart: 'shopping/addProductToCart'
 			}),
 			addToCart () {
 				this.addProductToCart({

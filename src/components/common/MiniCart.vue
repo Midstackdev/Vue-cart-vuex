@@ -2,10 +2,13 @@
 	<div>
 		<ul class="list-group" v-if="cart.length">
 		    <li class="list-group-item" v-for="item in cart">
-		    	{{ item.quantity }} x {{ item.product.title }} @ ${{ item.product.price }}<a href="#" class="badge badge-danger">Remove</a>
+		    	{{ item.quantity }} x {{ item.product.title }} @ ${{ item.product.price }}
+		    	<a href="#" class="badge badge-danger" @click.prevent="removeProductFromCart(item.product.id)">Remove</a>
 		    </li>
 		    <li class="list-group-item">
-		    	<a href="#" class="badge badge-pill badge-dark">Clear cart</a>
+		    	<a href="#" class="badge badge-pill badge-dark" @click.prevent="removeAllProductFromCart">
+		    		Clear cart
+		    	</a>
 		    </li>
 		</ul>
 		<p v-else class="lead">No items in cart</p>
@@ -25,7 +28,9 @@
 
 		methods: {
 			...mapActions({
-				getCart: 'getCart'
+				getCart: 'getCart',
+				removeProductFromCart: 'removeProductFromCart',
+				removeAllProductFromCart: 'removeAllProductFromCart'
 			})
 		},
 

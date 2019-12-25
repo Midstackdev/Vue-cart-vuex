@@ -24,5 +24,15 @@ export const addProductToCart = ({ commit }, { product, quantity }) => {
 		quantity
 	})
 }
-// remove a product from our cart cart
+// remove a product from our cart
+export const removeProductFromCart = ({ commit }, productId) => {
+	commit('removeFromcart', productId)
+	return axios.delete(`http://localhost:8002/api/cart/${productId}`).then((response) => {
+		return Promise.resolve()
+	})
+}
 // remove all products from our cart cart
+export const removeAllProductFromCart = ({ commit }) => {
+	commit('clearCart')
+	return axios.delete(`http://localhost:8002/api/cart/`)
+}

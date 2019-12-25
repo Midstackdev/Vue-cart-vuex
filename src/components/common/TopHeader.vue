@@ -4,7 +4,7 @@
   <header class="header">
     
       <div class="container">
-        x items in cart ($45.90)
+        {{ cartItemCount }} items in cart (${{ cartTotal }})
       </div>
     
   </header>
@@ -12,8 +12,16 @@
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
+
 	export default {
 		name: 'top-header',
+    computed: {
+      ...mapGetters ({
+        cartItemCount: 'cartItemCount',
+        cartTotal: 'cartTotal'
+      })
+    }
 	}
 </script>
 
